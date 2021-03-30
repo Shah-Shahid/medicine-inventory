@@ -3,14 +3,16 @@ package com.aste.inventory.controller;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.aste.inventory.entity.Type;
 import com.aste.inventory.entity.Unit;
 import com.aste.inventory.repository.UnitRepository;
 
@@ -36,6 +38,19 @@ public class UnitController {
 	public Optional<Unit> getById(@PathVariable long unitId) {
 		return unitRepository.findById(unitId);
 		
+	}
+	@PutMapping("/update")
+	public Unit updateUnit(@RequestBody Unit unit)
+	{
+		return unitRepository.save(unit);
+	}
+	
+	@DeleteMapping("/{unitId}")
+	public String deleteUnit(@PathVariable long unitId)
+	{
+		unitRepository.deleteById(unitId);
+		
+		return "Deleted Unit is -" + unitId;
 	}
 
 }
