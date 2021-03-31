@@ -11,7 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -48,31 +47,9 @@ public class User implements Serializable{
 	
 	@Column(name="Enabled")
 	boolean enabled;
-	
-	@Lob
-	@Column(name="Facebook_ID")
-	String facebookId;
-	
-	@Lob
-	@Column(name="Facebook_Token")
-	String facebookToken;
-	
-	@Lob
-	@Column(name="Google_ID")
-	String googleId;
-	
-	@Lob
-	@Column(name="Google_Token")
-	String googleToken;
-	
-	@Column(name="Login_Type")
-	int loginType;
-	
-	@Lob
-	@Column(name="Google_ID_Token")
-	String googleIdToken;
-	
-	@JsonIgnore
+		
+			
+	//@JsonIgnore
 	@LazyCollection(LazyCollectionOption.FALSE)
 	 @ManyToMany(cascade=CascadeType.ALL)
 	  @JoinTable( 
@@ -159,66 +136,7 @@ public class User implements Serializable{
 		this.enabled = enabled;
 	}
 
-	public String getFacebookId() {
-		return facebookId;
-	}
-
-
-	public void setFacebookId(String facebookId) {
-		this.facebookId = facebookId;
-	}
-
-
-	public String getFacebookToken() {
-		return facebookToken;
-	}
-
-
-	public void setFacebookToken(String facebookToken) {
-		this.facebookToken = facebookToken;
-	}
-
-
-	public String getGoogleId() {
-		return googleId;
-	}
-
-
-	public void setGoogleId(String googleId) {
-		this.googleId = googleId;
-	}
-
-
-	public String getGoogleToken() {
-		return googleToken;
-	}
-
-
-	public void setGoogleToken(String googleToken) {
-		this.googleToken = googleToken;
-	}
-
-
-	public int getLoginType() {
-		return loginType;
-	}
-
-
-	public void setLoginType(int loginType) {
-		this.loginType = loginType;
-	}
-
-
-	public String getGoogleIdToken() {
-		return googleIdToken;
-	}
-
-
-	public void setGoogleIdToken(String googleIdToken) {
-		this.googleIdToken = googleIdToken;
-	}
-
-
+	
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", password=" + password
