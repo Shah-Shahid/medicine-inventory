@@ -1,7 +1,6 @@
 package com.aste.inventory.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -30,8 +29,7 @@ public class MedicineController {
 	}
 	
 	@PostMapping("/add")
-	public ResponseEntity<?> save(@RequestBody Medicine medicine) {
-		
+	public ResponseEntity<Medicine> save(@RequestBody Medicine medicine) {		
 		return ResponseEntity.ok(medicineRepository.save(medicine));
 	}
 	
@@ -42,7 +40,7 @@ public class MedicineController {
 	}
 	
 	@PutMapping("/update")
-	public ResponseEntity<?> update(@RequestBody Medicine medicine) {			
+	public ResponseEntity<Medicine> update(@RequestBody Medicine medicine) {			
 		return ResponseEntity.ok(medicineRepository.save(medicine));
 	}
 	
