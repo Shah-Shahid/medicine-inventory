@@ -31,7 +31,7 @@ public class Address {
 	@Column(name="Contact")
 	Long contact;
 
-	@JsonIgnore
+	//@JsonIgnore
 	@JoinColumn(name="User_ID")
 	@ManyToOne(fetch=FetchType.EAGER)
 	User user;
